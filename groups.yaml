@@ -1,0 +1,6 @@
+#groups.yaml
+---
+cisco:
+  platform: cisco_ios
+  username: salman
+  password: Cisco12345

@@ -2,8 +2,14 @@ pyats[full]>=25.4
 nornir>=3.5.0
 netmiko>=4.5.0
 Jinja2>=3.1.6
-nornir-netmiko>=1.0.1
-nornir-jinja2>=0.2.0
-nornir-csv>=0.3.0
+nornir_netmiko>=1.0.1
+nornir_jinja2>=0.2.0
+nornir_csv>=0.3.0
 nornir_infrahub>=1.1.0
+nornir_utils>=0.2.0
 infrahub-sdk[all]>=1.0.0
+paramiko>=3.4.0
+cryptography>=42.0.0
+urllib3>=2.0.0
+
+#python3 -m pip install -r requirements.txt

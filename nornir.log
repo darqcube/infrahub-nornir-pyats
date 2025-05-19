@@ -1,0 +1,133 @@
+2025-05-19 13:35:23,886 -  nornir.core -     INFO -        run() - Running task 'say_hello' with args {} on 2 hosts
+2025-05-19 13:39:00,014 -  nornir.core -     INFO -        run() - Running task 'say_hello' with args {} on 2 hosts
+2025-05-19 13:47:07,243 -  nornir.core -     INFO -        run() - Running task 'say_hello' with args {} on 2 hosts
+2025-05-19 13:48:18,506 -  nornir.core -     INFO -        run() - Running task 'say_hello' with args {} on 2 hosts
+2025-05-19 16:32:36,642 -  nornir.core -     INFO -        run() - Running task 'say_hello' with args {} on 2 hosts
+2025-05-19 16:32:42,220 -  nornir.core -     INFO -        run() - Running task 'say_hello' with args {} on 2 hosts
+2025-05-19 16:37:31,390 -  nornir.core -     INFO -        run() - Running task 'say_hello' with args {} on 2 hosts
+2025-05-19 16:37:31,392 - nornir.core.task -    ERROR -      start() - Host 'ft-rc-r1': task 'say_hello' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/salmankhan/Repositories/infrahub-nornir-pyats/basic.py", line 6, in say_hello
+    return f"My Task Works! Yaay {task.host} - {task.host.group} - {task.host.hostname}"
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/inventory.py", line 354, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'group'
+
+2025-05-19 16:37:31,393 - nornir.core.task -    ERROR -      start() - Host 'ft-ptcl-r1': task 'say_hello' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/salmankhan/Repositories/infrahub-nornir-pyats/basic.py", line 6, in say_hello
+    return f"My Task Works! Yaay {task.host} - {task.host.group} - {task.host.hostname}"
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/inventory.py", line 354, in __getattribute__
+    return object.__getattribute__(self, name)
+AttributeError: 'Host' object has no attribute 'group'
+
+2025-05-19 16:39:10,798 -  nornir.core -     INFO -        run() - Running task 'say_hello' with args {} on 2 hosts
+2025-05-19 16:47:39,125 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show ip int br'} on 2 hosts
+2025-05-19 16:47:41,636 - nornir.core.task -    ERROR -      start() - Host 'ft-rc-r1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/base_connection.py", line 1142, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/transport.py", line 1603, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/ssh_dispatcher.py", line 410, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/base_connection.py", line 493, in __init__
+    self._open()
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/base_connection.py", line 498, in _open
+    self.establish_connection()
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/base_connection.py", line 1179, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 175.107.197.219:22
+
+
+Authentication failed.
+
+2025-05-19 16:50:12,968 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show ip int br | inc down'} on 2 hosts
+2025-05-19 16:50:15,285 - nornir.core.task -    ERROR -      start() - Host 'ft-rc-r1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/base_connection.py", line 1142, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/client.py", line 818, in _auth
+    raise saved_exception
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/client.py", line 805, in _auth
+    self._transport.auth_password(username, password)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/transport.py", line 1603, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/ssh_dispatcher.py", line 410, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/base_connection.py", line 493, in __init__
+    self._open()
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/base_connection.py", line 498, in _open
+    self.establish_connection()
+  File "/Users/salmankhan/Library/Python/3.9/lib/python/site-packages/netmiko/base_connection.py", line 1179, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 175.107.197.219:22
+
+
+Authentication failed.
+
+2025-05-19 16:54:26,779 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show config | sec ntp'} on 2 hosts
+2025-05-19 16:57:03,918 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show config | sec ntp'} on 2 hosts
+2025-05-19 16:57:49,201 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show config | sec ntp'} on 2 hosts
+2025-05-19 17:00:03,429 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show config | sec ntp'} on 2 hosts
+2025-05-19 17:05:02,525 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show config | sec ntp'} on 2 hosts

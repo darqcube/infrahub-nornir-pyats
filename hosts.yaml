@@ -1,0 +1,13 @@
+#hosts.yaml
+---
+ft-ptcl-r1:
+  hostname: 192.168.22.1
+  groups:
+    - cisco
+
+ft-rc-r1:
+  hostname: 175.107.197.219
+  groups:
+    - cisco
+  username: admin
+  password: Ft-Rc@!@#
