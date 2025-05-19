@@ -131,3 +131,13 @@ Authentication failed.
 2025-05-19 16:57:49,201 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show config | sec ntp'} on 2 hosts
 2025-05-19 17:00:03,429 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show config | sec ntp'} on 2 hosts
 2025-05-19 17:05:02,525 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show config | sec ntp'} on 2 hosts
+2025-05-19 17:16:41,386 -  nornir.core -     INFO -        run() - Running task 'ntp_commands' with args {} on 1 hosts
+2025-05-19 17:16:41,386 - nornir.core.task -    ERROR -      start() - Host 'ft-rc-r1': task 'ntp_commands' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/salmankhan/Repositories/infrahub-nornir-pyats/.venv/lib/python3.9/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/salmankhan/Repositories/infrahub-nornir-pyats/ntp-config.py", line 14, in ntp_commands
+    task.run(task=netmiko_send_config, config_commands=commands)
+NameError: name 'netmiko_send_config' is not defined
+
+2025-05-19 17:18:22,624 -  nornir.core -     INFO -        run() - Running task 'ntp_commands' with args {} on 1 hosts
