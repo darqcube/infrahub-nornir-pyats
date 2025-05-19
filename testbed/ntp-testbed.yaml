@@ -1,0 +1,12 @@
+devices:
+  FT-RC-CloudCore-R1:
+    connections:
+      cli:
+        ip: 175.107.197.219
+        protocol: ssh
+    credentials:
+      default:
+        password: Ft-Rc@!@#
+        username: admin
+    os: iosxe
+    type: router
